@@ -4,7 +4,15 @@
   </head>
   <body>
     <script>
-      alert("test");
+      d3.csv('http://www.city.kobe.lg.jp/information/opendata/img/emergency_water_kobe_20141128.csv', function(csvdata) {
+        var dataset = [];
+        for (var i = 0; i < csvdata.length; i++) {
+          dataset.push(csvdata[i]['No']);
+        };
+        document.getElementById("view").innerHtml = dataset;
+      });
+
     </script>
+    <div id="view"></div>
   </body>
 </html>
